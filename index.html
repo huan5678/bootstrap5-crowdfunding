@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="./src/fontawesome/all.min.css">
+        <link rel="stylesheet" href="./src/css/all.css">
+        <script src="./src/fontawesome/all.min.js"></script>
+    
+</head>
+
+<body>
+    <header class="border border-5 border-top-0 border-start-0 border-end-0 border-primary">
+        <div class="container">
+            <div class="row justify-content-between py-4 pb-0">
+                <div class="col me-auto">
+                    <ul
+                        class="d-flex list-unstyled flex-wrap flex-md-wrap flex-lg-nowrap justify-content-start align-items-center">
+                        <li class="me-md-5">
+                            <a href="#"><img src="https://hexschool.github.io/boootstrap5WebLayout/assets/logo.jpg"
+                                    width="111px" height="40px" alt="logo"></a>
+                        </li>
+                        <li class="me-2 me-lg-5 d-none d-md-block">
+                            <a href="#" class="link-dark text-decoration-none">
+                                關於
+                            </a>
+                        </li>
+                        <li class="me-2 me-lg-5 d-none d-md-block">
+                            <a href="#" class="link-dark text-decoration-none">
+                                挖寶
+                            </a>
+                        </li>
+                        <li class="d-none d-md-block">
+                            <a href="#" class="link-dark text-decoration-none">
+                                我有一個大膽的想法
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <a href="#"
+                        class="btn btn-primary px-4 rounded-pill fw-bold d-none d-sm-none d-md-inline-block d-lg-inline-block"
+                        data-bs-toggle="modal" data-bs-target="#loading">登入</a>
+                    <a href="#"
+                        class="btn btn-outline-gray border-2 px-4 rounded-pill fw-bold ms-2 d-none d-sm-none d-md-inline-block d-lg-inline-block">註冊</a>
+                    <button class="text-gray border-0 bg-white d-block d-md-none fs-1" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#nav-Top" aria-controls="navbarToggle" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="offcanvas offcanvas-bottom h-auto" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="nav-Top" aria-labelledby="offcanvasBottomLabel">
+                <div class="offcanvas-header bg-gray">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <ul class="offcanvas-body d-flex list-unstyled flex-column justify-content-evenly m-0 p-0">
+                    <li class="py-3 border-bottom position-relative">
+                        <a href="#" class="ms-3 link-dark text-decoration-none stretched-link">
+                            關於
+                        </a>
+                    </li>
+                    <li class="py-3 border-bottom position-relative">
+                        <a href="#" class="ms-3 link-dark text-decoration-none stretched-link">
+                            挖寶
+                        </a>
+                    </li>
+                    <li class="py-3 position-relative">
+                        <a href="#" class="ms-3 link-dark text-decoration-none stretched-link">
+                            我有一個大膽的想法
+                        </a>
+                    </li>
+                  <li class="py-3 d-flex justify-content-evenly align-items-center">
+                        <a href="#"
+                        class="btn btn-primary px-4 rounded-pill fw-bold mx-2 w-50"
+                        data-bs-toggle="modal" data-bs-target="#loading">登入</a>
+                    <a href="#"
+                        class="btn btn-outline-gray border-2 px-4 rounded-pill fw-bold mx-2 w-50">註冊</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main id="app" class="text-black mb-5">
+        <div class="bg-light">
+            <div class="container py-3 py-lg-5">
+                <span class="badge bg-gray py-1 px-3 mb-1">魔法科技</span>
+                <h1 class="h4 tracking-xl fw-bold mb-4 w-75">{{ product.title }}</h1>
+                <div class="row mt-2">
+                    <div class="col-12 col-lg-6 px-3 ps-md-0 pe-md-2 mb-3">
+                        <img src="https://hexschool.github.io/boootstrap5WebLayout/assets/produt_image.jpg" alt="banner"
+                            class="img-fluid rounded-xl">
+                    </div>
+                    <div class="col-12 col-lg-6 ps-3">
+                        <div class="d-flex flex-column justify-content-between">
+                            <span class="fs-7 fw-light mb-2 text-dark">
+                                {{product.target}}
+                            </span>
+                            <h3 class="sp-num fs-2 my-2">
+                                {{product.totalfund}}
+                            </h3>
+                            <div class="progress rounded-pill mb-4">
+                                <div class="progress-bar bg-primary text-dark" role="progressbar"
+                                    :style="{ width: product.percent + '%' }" aria-valuemin="0" aria-valuemax="100">
+                                    {{ product.percent }}%
+                                </div>
+                            </div>
+                            <div class="row justify-content-between">
+                                <div class="col-6">
+                                    <p class="fs-7 fw-light text-dark mb-2">
+                                        贊助人數
+                                        <br>
+                                        <h3 class="sp-num fs-2">
+                                            {{product.totalpeople}}
+                                            <span class="font-sans fw-bold fs-4 ps-1">
+                                                人
+                                            </span>
+                                        </h3>
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="fs-7 fw-light mb-2 text-dark">
+                                        募資天數
+                                        <br>
+                                        <h3 class="sp-num fs-2">
+                                            {{product.counttime}}
+                                            <span class="font-sans fw-bold fs-4 ps-1">
+                                                天
+                                            </span>
+                                        </h3>
+                                    </p>
+                                </div>
+                            </div>
+                            <ul class="d-flex justify-content-between justify-content-md-start align-items-center list-unstyled">
+                                <li v-for="(good , idx) of product.icon_good" class="me-4">
+                                    <a href="#" class="d-inline-block me-2" data-bs-toggle="tooltip" data-bs-placement="top" :title="product.icon_comm[idx]">
+                                        <img :src="'https://hexschool.github.io/boootstrap5WebLayout/assets/' + good"
+                                            width="24" :alt="product.icon_comm[idx]">
+                                    </a>
+                                    <span class="fs-8 d-inline-block d-md-none text-dark">{{product.icon_comm[idx]}}</span>
+                                </li>
+                            </ul>
+                            <div class="border-primary border-start border-3 bg-white rounded mb-4">
+                                <p class="p-3 pb-0">
+                                    專案募資中！<br>
+                                    在<span class="fs-6 fw-bold px-1">{{product.totaltime}}</span>募資結束前，您都可以贊助我們！
+                                </p>
+                            </div>
+                            <button type="button"
+                                class="btn btn-primary rounded-pill fs-5 fw-bold px-3 py-1 mb-2" onclick="goFrom()">贊助專案</button>
+                            <div class="d-flex justify-content-between">
+                                <button type="button"
+                                    class="btn btn-outline-gray border-2 px-4 rounded-pill fs-5 fw-bold w-75 me-2">
+                                    <i class="fas fa-heart me-2 "></i>追蹤專案
+                                </button>
+                                <button type="button"
+                                    class="btn btn-outline-gray border-2 px-4 rounded-pill fs-5 fw-bold w-50">
+                                    <i class="fas fa-share-alt me-2"></i>分享
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-block d-md-none fixed-bottom">
+            <button type="button" class="btn btn-primary rounded-0 w-100 fs-5 fw-bold px-3 py-1" onclick="goFromMobile()">
+                贊助專案
+            </button>
+        </div>
+        <nav class="navbar navbar-expand p-2 p-md-4 border-2 border-gray-light border-top border-bottom" role="navigation">
+            <ul class="nav container w-100 justify-content-between justify-content-md-start" role="tablist">
+                <li class="nav-item position-relative me-2" role="presentation">
+                    <a class="nav-link link-dark active" id="project-tab" aria-current="page"
+                        data-bs-toggle="tab" data-bs-target="#project" href="#project" aria-controls="project"
+                        aria-selected="true">專案介紹</a>
+                </li>
+                <li class="nav-item position-relative me-2" role="presentation">
+                    <a class="nav-link link-dark" id="faq-tab" aria-current="page" data-bs-toggle="tab"
+                        data-bs-target="#faq" href="#faq" aria-controls="faq" aria-selected="false">常見問題</a>
+                </li>
+                <li class="nav-item position-relative me-2" role="presentation">
+                    <a class="nav-link link-dark" id="progress-tab" aria-current="page" data-bs-toggle="tab"
+                        data-bs-target="#progress" href="#progress" aria-controls="progress"
+                        aria-selected="false">目前進度</a>
+                </li>
+                <li class="nav-item position-relative me-2" role="presentation">
+                    <a class="nav-link link-dark" id="comment-tab" aria-current="page" data-bs-toggle="tab"
+                        data-bs-target="#comment" href="#comment" aria-controls="comment" aria-selected="false">留言</a>
+                </li>
+            </ul>
+        </nav>
+        <section class="container">
+            <div class="row mt-5">
+                <div class="col-12 col-lg-8 ps-lg-0 pe-lg-4 me-lg-4">
+                    <div class="tab-content" id="TabContent">
+                        <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="project" id="project">
+                            <article v-for="(at, pt) of article" class="mb-4">
+                                <img :src="'https://hexschool.github.io/boootstrap5WebLayout/assets/p'+pt+'.jpg'"
+                                    :alt="'p'+pt" class="img-fluid w-100 mb-4">
+                                <h2 class="border-start border-4 border-primary ps-3 fs-4 fw-bold tracking-l">
+                                    {{at.title}}
+                                </h2>
+                                <p class="lh-lg text-justify">
+                                    {{at.content}}
+                                </p>
+                            </article>
+                        </div>
+                        <div class="tab-pane fade" role="tabpanel" aria-labelledby="faq" id="faq">
+                            <ul class="list-unstyled list-group">
+                                <li v-for="ct in faq" class="accordion mb-3">
+                                    <div class="accordion-item rounded-4 border-gray-light"
+                                        :class="{'shadow': ct.isOpen}" @click="ct.isOpen = !ct.isOpen"
+                                        data-bs-toggle="collapse" :data-bs-target="'#' + ct.id"
+                                        aria-controls="navbarToggleExternalContent" aria-expanded="true"
+                                        aria-label="Toggle navigation">
+                                        <div class="d-flex align-items-center accordion-button bg-white">
+                                            <span class="badge bg-primary sp-num text-dark fs-7 fw-bold px-2 py-2 me-3">
+                                                {{ct.id}}
+                                            </span>
+                                            <span class="text-dark me-auto fs-7 tracking-s my-2">
+                                                {{ct.title}}
+                                            </span>
+                                        </div>
+                                        <p class="accordion-collapse collapse pt-3 ps-6 pe-3 fs-7 tracking-s lh-l text-gray"
+                                            :id="ct.id">
+                                            {{ct.content}}
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="tab-pane fade list-unstyled" role="tabpanel" aria-labelledby="progress"
+                            id="progress">
+                            <li class="border border-1 border-gray-light rounded-2 mb-3" v-for="(pg, pt) in progress">
+                                <div class="d-flex">
+                                    <img :src="'https://hexschool.github.io/boootstrap5WebLayout/assets/news0' + pt +'.jpg'" :alt="'news'+pt" class="img-fluid pro-img">
+                                    <div class="d-flex flex-column justify-content-md-between p-3">
+                                        <h3 class="fs-6">
+                                            {{pg.title}}
+                                        </h3>
+                                        <span class="fs-7 text-gray mb-2">
+                                            {{pg.time}}
+                                        </span>
+                                        <p class="fs-7 text-gray d-none d-md-block">
+                                            {{pg.content}}
+                                        </p>
+                                        <a href="#" class="text-danger text-decoration-none sp-num fw-bold tracking-s pt-2 pt-md-0">
+                                            MORE
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="tab-pane fade" role="tabpanel" aria-labelledby="comment" id="comment">
+                            <h3
+                                class="fs-7 fw-normal p-3 mb-med border border-primary border-3 border-top-0 border-end-0 border-bottom-0">
+                                只有本專案的贊助者才可以留言哦，如果有任何專案相關的問題，歡迎
+                                <span class="text-danger">聯絡提案人</span>
+                                ！
+                            </h3>
+                            <ul class="list-unstyled" v-for="(com, pt , idx) in comment">
+                                <li class="border rounded-4 p-3">
+                                    <div class="d-flex mb-3">
+                                        <img :src="'https://hexschool.github.io/boootstrap5WebLayout/assets/'+[(idx == 0) ? user_img1 : user_img2]"
+                                            :alt="[(idx == 0) ? user_img1 : user_img2]">
+                                        <div class="tracking-l ps-3">
+                                            <h4 class="fs-5 fw-med">
+                                                {{com.name}}
+                                            </h4>
+                                            <span class="text-gray fs7">
+                                                {{com.time}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="tracking-s mb-3">
+                                        {{com.content}}
+                                    </p>
+                                    <p class="bg-light rounded-2 p-3" :class="(idx == 0) ? 'd-block' : 'd-none'">
+                                        <span class="fs-7 text-danger" style="letter-spacing: .038125rem;">
+                                            提案者回覆
+                                        </span>
+                                        <br>
+                                        {{com.report}}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-block">
+                        <div class="d-flex flex-column justify-content-center align-items-center pt-4">
+                            <img src="https://hexschool.github.io/boootstrap5WebLayout/assets/icon_heart.svg" width="43"
+                                alt="heart" class="mb-3">
+                            <div class="position-relative w-100">
+                                <div class="progress w-100 h-3">
+                                    <div class="progress-bar bg-primary w-100" role="progressbar" aria-valuenow="100"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <h3 class="text-center position-absolute top-0 start-50 bg-white px-3 translate-middle">
+                                    <span class="d-inline tracking-l fs-4">
+                                        贊助專案
+                                    </span>
+                                </h3>
+                            </div>
+                        </div>
+                        <form id="form" class="row flex-column g-3 needs-validation mt-4 mb-4" novalidate>
+                            <div class="w-100">
+                                <label for="validationCustom01" class="form-label">贊助方案</label>
+                                <select class="form-select bg-light border-0 form-text" id="validationCustom04" required>
+                                    <option selected disabled value="">請選擇一個方案</option>
+                                    <option value="product01">買１送１超值方案</option>
+                                    <option value="product02">單入組</option>
+                                    <option value="product03">二入組</option>
+                                    <option value="product04">三入組</option>
+                                </select>
+                            </div>
+                            <div class="w-100">
+                                <label for="validationCustom02" class="form-label">收件人姓名</label>
+                                <input type="text" class="form-control bg-light border-0 form-text" id="validationCustom02"
+                                    value="" required>
+                                <div class="invalid-feedback">
+                                    請輸入收件人姓名
+                                </div>
+                            </div>
+                            <div class="w-100">
+                                <label for="validationCustom03" class="form-label">聯絡電話</label>
+                                <input type="phone" class="form-control bg-light border-0 form-text" id="validationCustom03"
+                                    value="" required>
+                                <div class="invalid-feedback">
+                                    請輸入收件人聯絡電話
+                                </div>
+                            </div>
+                            <div class="w-100">
+                                <label for="validationCustom04" class="form-label">聯絡信箱</label>
+                                <input type="mail" class="form-control bg-light border-0 form-text" value="" required>
+                                <input type="mail" class="form-control bg-light border-1 border-danger form-text"
+                                    id="validationCustom04" value="" v-show="check" required>
+                                <div class="text-danger fs-7 mt-1 invalid-feedback" v-show="check">
+                                    請輸入正確的郵件格式
+                                </div>
+                            </div>
+                            <div class="w-100 mb-2">
+                                <label for="validationCustom05" class="form-label">付款方式</label>
+                                <select class="form-select bg-light border-0 form-text" id="validationCustom05" required>
+                                    <option selected value="credit">信用卡付款</option>
+                                    <option value="atm">ATM 機器轉帳或銀行臨櫃繳款</option>
+                                    <option value="shop">超商付款</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary d-inline-block rounded-pill submit-btn fw-bold fs-m text-decoration-none">贊助專案</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <aside class="col">
+                    <div class="border border-gray-light rounded p-3 mb-3">
+                        <div class="row align-items-center mb-2">
+                            <div class="col-4">
+                                <img src="https://hexschool.github.io/boootstrap5WebLayout/assets/store_img.jpg"
+                                    width="100" class="img-fluid border border-3 border-primary rounded-circle"
+                                    alt="creator">
+                            </div>
+                            <div class="col-8">
+                                <h3 class="fs-3 fw-med">
+                                    {{creator.name}}
+                                </h3>
+                                <span>
+                                    {{creator.post}}
+                                </span>
+                            </div>
+                        </div>
+                        <p class="tracking-wider">
+                            {{creator.describe}}
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <a href="#" class="bg-gray text-white rounded-circle text-center icon me-2">
+                                    <i class="fab fa-facebook-f align-middle"></i>
+                                </a>
+                                <a href="#" class="bg-gray text-white rounded-circle text-center icon">
+                                    <i class="fab fa-youtube align-middle"></i>
+                                </a>
+                            </div>
+                            <button type="button" class="btn btn-outline-gray rounded-pill fs-7 px-3">
+                                <i class="far fa-comment-dots"></i>
+                                聯絡我們
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pt-3 mb-3">
+                        <h4
+                            class="bg-light border border-3 border-top-0 border-bottom-0 border-primary rounded-3 fw-bold text-center fs-5 py-2">
+                            選擇一個方案來支持</h4>
+                    </div>
+                    <div class="card rounded-5 overflow-hidden mb-3" v-for="or in 3">
+                        <img src="https://hexschool.github.io/boootstrap5WebLayout/assets/plan_img.jpg"
+                            class="card-img-top" alt="plan-img">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between border-bottom border-gray-light pb-2 mb-2">
+                                <span class="text-dark fs-7 tracking-l">
+                                    {{offer.tag}}
+                                </span>
+                                <span class="text-dark fs-7">
+                                    {{offer.time}}
+                                </span>
+                            </div>
+                            <h5 class="fs-m tracking-l mb-2">
+                                {{offer.title}}
+                            </h5>
+                            <h5 class="fs-4 sp-num fw-bolder">
+                                {{offer.cost}}
+                            </h5>
+                            <div class="d-flex mb-2">
+                                <span class="badge bg-gray-light text-gray py-1 px-3 me-2">已被贊助{{offer.order}}次</span>
+                                <span class="badge bg-gray py-1 px-3">限量<span
+                                        class="text-primary">{{offer.price}}</span>個</span>
+                            </div>
+                            <p class="text-gray text-justify tracking-s lh-base mb-3">
+                                {{offer.content}}
+                            </p>
+                            <button type="button"
+                                class="btn btn-primary rounded-pill fw-bold px-3 py-2 mb-2 w-100" onclick="goFrom()">贊助此專案</button>
+                        </div>
+                    </div>
+                </aside>
+                <div id="ta" class="col-12 d-block d-lg-none">
+                    <div class="d-flex flex-column justify-content-center align-items-center pt-4">
+                        <img src="https://hexschool.github.io/boootstrap5WebLayout/assets/icon_heart.svg" width="43"
+                            alt="heart" class="mb-3">
+                        <div class="position-relative w-100">
+                            <div class="progress w-100 h-3">
+                                <div class="progress-bar bg-primary w-100" role="progressbar" aria-valuenow="100"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h3 class="text-center position-absolute top-0 start-50 bg-white px-3 translate-middle">
+                                <span class="d-inline tracking-l fs-4">
+                                    贊助專案
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                    <form id="form-mobile" class="row flex-column g-3 needs-validation mt-4 mb-4" novalidate>
+                        <div class="w-100">
+                            <label for="validationCustom01" class="form-label">贊助方案</label>
+                            <select class="form-select bg-light border-0 form-text" id="validationCustom04" required>
+                                <option selected disabled value="">請選擇一個方案</option>
+                                <option value="product01">買１送１超值方案</option>
+                                <option value="product02">單入組</option>
+                                <option value="product03">二入組</option>
+                                <option value="product04">三入組</option>
+                            </select>
+                        </div>
+                        <div class="w-100">
+                            <label for="validationCustom02" class="form-label">收件人姓名</label>
+                            <input type="text" class="form-control bg-light border-0 form-text" id="validationCustom02"
+                                value="" required>
+                            <div class="invalid-feedback">
+                                請輸入收件人姓名
+                            </div>
+                        </div>
+                        <div class="w-100">
+                            <label for="validationCustom03" class="form-label">聯絡電話</label>
+                            <input type="phone" class="form-control bg-light border-0 form-text" id="validationCustom03"
+                                value="" required>
+                            <div class="invalid-feedback">
+                                請輸入收件人聯絡電話
+                            </div>
+                        </div>
+                        <div class="w-100">
+                            <label for="validationCustom04" class="form-label">聯絡信箱</label>
+                            <input type="mail" class="form-control bg-light border-0 form-text" value="" required>
+                            <input type="mail" class="form-control bg-light border-1 border-danger form-text"
+                                id="validationCustom04" value="" v-show="check" required>
+                            <div class="text-danger fs-7 mt-1 invalid-feedback" v-show="check">
+                                請輸入正確的郵件格式
+                            </div>
+                        </div>
+                        <div class="w-100 mb-2">
+                            <label for="validationCustom05" class="form-label">付款方式</label>
+                            <select class="form-select bg-light border-0 form-text" id="validationCustom05" required>
+                                <option selected value="credit">信用卡付款</option>
+                                <option value="atm">ATM 機器轉帳或銀行臨櫃繳款</option>
+                                <option value="shop">超商付款</option>
+                            </select>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary d-inline-block rounded-pill submit-btn fw-bold fs-m text-decoration-none">贊助專案</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="bg-dark py-3">
+        <p class="text-center text-white my-3">Copyright ⓒ2021 拼拼 All rights reserved.</p>
+    </footer>
+
+
+    <div class="modal fade text-dark" id="loading" tabindex="-1" aria-labelledby="loadingLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-primary border-4 border-start-0 border-end-0 border-bottom-0">
+                <div class="modal-header">
+                    <h5 class="modal-title fs-4" id="loadingLabel">登入</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="needs-validation">
+                        <div class="w-100 mb-3">
+                            <label for="validationCustom02" class="form-label">帳號</label>
+                            <input type="text" class="form-control bg-light border-0 form-text" id="validationCustom02"
+                                value="" required>
+                            <div class="valid-feedback">
+                                請輸入使用者帳號
+                            </div>
+                        </div>
+                        <div class="w-100">
+                            <label for="validationCustom02" class="form-label">密碼</label>
+                            <input type="password" class="form-control bg-light border-0 form-text mb-2"
+                                id="validationCustom02" value="" required>
+                            <div class="valid-feedback">
+                                登入密碼錯誤
+                            </div>
+                            <a href="#" class="fs-7 link-gray">忘記密碼?</a>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3 mb-4">
+                        <button class="btn btn-primary d-inline-block rounded-pill w-100 py-2 fw-bold fs-m"
+                            type="submit">登入</button>
+                    </div>
+                    <div class="position-relative w-100 mb-3">
+                        <div class="progress h-1">
+                        </div>
+                        <p class="fs-7 text-center position-absolute top-0 start-50 bg-white px-3 translate-middle">
+                            <span class="d-inline-block text-gray">
+                                還沒有帳號？ <span class="text-danger">註冊一個帳號</span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="./src/js/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="./src/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./src/js/all.js"></script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+
+  function goFrom(){
+    var ta = $('#form');
+    // console.log(ta.offset());
+    $('html,body').animate({scrollTop: ta.offset().top},300);
+}
+
+function goFromMobile(){
+    var ta = $('#form-mobile');
+    // console.log(ta.offset());
+    $('html,body').animate({scrollTop: ta.offset().top},300);
+}
+
+$(document).ready(function () {
+
+$(window).scroll(function(){
+    var th = document.getElementById("ta").offsetTop;
+    // console.log('th = ',th);
+    
+    var scrollVal = $(this).scrollTop();
+    var windowVal = $(window).height();
+    // console.log('wv = ',windowVal);
+    var wv = 0 - windowVal;
+    // console.log('sc = ',scrollVal);
+    var scr = scrollVal - th;
+    // console.log('scr = ',scr);
+    var re = scr - scrollVal;
+    // console.log ('re = ',scr-scrollVal);
+    if (re < 0 && scr > wv){
+    $('#toFrom').addClass('d-none');      
+    } else {
+    $('#toFrom').removeClass('d-none');      
+    }
+})
+})
+
+
+
+
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+    </script>
+</body>
+
+</html>

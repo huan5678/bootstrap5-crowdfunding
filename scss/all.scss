@@ -1,0 +1,199 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+
+$primary: #FFDF65;
+$danger: #FF785E;
+$gray: #858377;
+$gray-light: #E8E8DB;
+$dark: #636057;
+$black: #494846;
+$light: #F8F9FA;
+
+$tooltip-color: $primary;
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger,
+  "dark": $dark,
+  "gray": $gray,
+  "black": $black,
+  "light": $light,
+  "gray-light": $gray-light,
+  );
+
+  $font-family-sans-serif: "Noto Sans TC", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  @import "../node_modules/bootstrap/scss/bootstrap";
+
+
+.sp-num {
+  font-family: 'Baloo Tamma 2', cursive;
+}
+
+.font-sans {
+  font-family: $font-family-sans-serif;
+}
+
+.fs-m {
+  font-size: 1.125rem;
+}
+
+.fs-7 {
+  font-size: .875rem;
+}
+
+.fs-8 {
+  font-size: .75rem;
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05rem;
+}
+.tracking-tight {
+  letter-spacing: -0.025rem;
+}
+.tracking-normal {
+  letter-spacing: 0rem;
+}
+.tracking-wide {
+  letter-spacing: 0.025rem;
+}
+.tracking-wider {
+  letter-spacing: 0.05rem;
+}
+.tracking-widest {
+  letter-spacing: 0.1rem;
+}
+.tracking-xl {
+  letter-spacing: 0.1875rem;
+}
+.tracking-l {
+  letter-spacing: .125rem;
+}
+.tracking-s {
+  letter-spacing: .04375rem;
+}
+
+a.active {
+  font-weight: 700;
+}
+
+a.active::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: $primary;
+  transform: translateY(.55rem);
+}
+
+@media (min-width: 768px) {
+  a.active::after {
+    transform: translateY(1.5rem);
+  }
+}
+
+.pro-img {
+  width: 135px;
+  height: 132px;
+}
+
+@media (min-width: 768px) {
+  .pro-img {
+    width: 220px;
+    height: 168px;
+  }
+}
+
+.fw-med {
+  font-weight: 500;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.rounded-4 {
+  border-radius: .5rem;
+}
+
+.rounded-5 {
+  border-radius: 1rem;
+}
+
+.rounded-xl {
+  border-radius: 2rem;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.submit-btn {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  padding-right: 3rem;
+  padding-left: 3rem;
+}
+
+.form-text {
+  color: #999999;
+}
+
+.btn-primary {
+  color: $dark;
+}
+
+.btn-primary:hover {
+  background-color: $danger;
+  color: #FFFFFF;
+}
+
+.btn-outline-gray:hover {
+  background-color: $primary;
+  color: $gray;
+  border-color: $primary;
+}
+.btn-outline-gray:hover>i {
+  color: $danger;
+}
+
+.ws-nowrap {
+  white-space: nowrap;
+}
+
+.h-1 {
+  height: 1px;
+}
+
+.h-3 {
+  height: 3px;
+}
+
+.ps-6 {
+  padding-left: 4rem;
+}
+
+.lh-l {
+  line-height: 1.6875rem;
+}
+
+.mb-med {
+  margin-bottom: 2rem;
+}
+
+.was-validated .form-select:invalid,.was-validated .form-control:invalid,.was-validated .form-select:valid{
+  border: 1px solid $danger !important;
+  background-image: none !important;
+}
+
+.was-validated .form-select:valid {
+  border: 1px solid $success !important;
+  background-image: none !important;
+}
